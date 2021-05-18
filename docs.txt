@@ -1,0 +1,60 @@
+1. Array yasimiz "quizData" nomli ichida Object bo'ladi
+
+2. Har bir Object ichida o'zgaruvchila bo'lishi kere
+question: '',
+a: '',
+b: '',
+c: '',
+d: '',
+correct: ''
+
+3. input ni "answer" nomli class ni chaqiramiz
+inputValue nom bilan const da saqlimiz
+querySelectorAll yordamida chaqirib olishdan maqsad hamma "answer" class lani 1ta Array ga joylash uchun 
+querySelectorAll qilib chaqirilganda olingan hamma element la NodeList ga aylanib qoladi yani Array ga lekin bu NodeList Array JavaScript Array ga o'xshash emas
+
+4. h2 ni "question" nomli id sini chaqiramiz
+questionTitle nom bilan const da saqlimiz
+chaqirishdan maqsad Object ichidigi "question" qiymatida nima yozilgan bo'sa shuni browser da ko'rsatish uchun
+
+5. label id larini chaqiramiz
+label id nomlari qanaqa bo'sa shu nom bilan const da saqlimiz
+
+6. button ni "submit" nomli id sini chaqiramiz
+id nomi qanaqa bo'sa shu nom bilan const da saqlimiz
+
+7. quiz id ni chaqiramiz id nom qanaqa bo'sa shu nom bilan const da saqlimiz
+
+8. let yordamida currentQuiz o'zgaruvchi ochamiz qiymati 0
+
+9. let yordamida score o'zgaruvchi ochamiz qiymati 0
+
+10. loadQuiz nomli function ochamiz.
+loadQuiz ichida currentQuizData o'zgaruvchi ochamiz const yordamida qiymatiga quizData berib currentQuiz ni [] qovus ichiga qo'yamiz.
+questionTitle, question_a, question_b, question_c, question_d o'zgaruvchilaga innerText qilib currentQuizData nuqta va Object ichidi o'zgaruvchilani nomini mos ravishda qo'yib chaqiramiz.
+loadQuiz function ni chaqirib qo'yamiz
+
+11. getSelected nomli function ochamiz.
+ichida answer nomli o'zgaruvchi ochamiz qiymati undefined
+for ichida inputVal ochamiz let yordamida qiymati inputValue[i]
+if yozamiz agar inputVal checked qilingan bo'sa answer ga inputVal.id qiymat qib beramiz
+for dan chiqib ketib return qilamiz answer ni
+
+10. deselectAnswers function ochamiz
+for ichida inputVal ochamiz let yordamida qiymati inputValue[i]
+va inputVal.checked yozib qiymatini false qilamiz yani keyingi savol ga o'tganda checked qilingan input restart bo'lishi uchun
+deselectAnswers function ni loadQuiz function ichida chaqirib qoyamiz
+
+11. submit o'zgaruvchiga addEventListener click hodisasini beramiz callback function ichiga code yozamiz button bosilganda callback function ichidigi yozilgan code ishlashi uchun callback kere
+callback ichida answer o'zgaruvchi ochamiz qiymati getSelected function bo'ladi
+if yozamiz if ichiga answer o'zgaruvchini qo'yamiz
+if ichida yana if ochamiz bu safar answer ni tekshiramiz agar answer aniq teng bo'sa quizData[currentQuiz].correct ga score inkriment qilamiz 
+bu if dan chiqib ketib currentQuiz ni inkriment qilamiz
+bundan keyin yana if ochamiz agar currentQuiz kichkina bo'sa quizData.length dan loadQuiz function ishga tushuramiz
+aks holda quiz o'zgaruvchiga innerHTML yozib qiymatiga tilda ichida h2 yozib h2 ichida 
+You answered correctly at score ${score}/${quizData.length} questions.</h2>
+<button onclick="location.reload()">Reload</button>
+yozamiz
+
+
+
